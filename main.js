@@ -817,7 +817,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
         ] )
         .then(results => {results.forEach(result => txt += `${result}\n\n\n`)
                          
-                          await sock.sendMessage(chatId , { text : txt } ) ; 
+                           sock.sendMessage(chatId , { text : txt } ) ; 
                         })
         .catch(err => {console.log(err)})
         }
