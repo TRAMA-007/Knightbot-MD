@@ -756,6 +756,87 @@ async function handleMessages(sock, messageUpdate, printLog) {
                 await groupJidCommand(sock, chatId, message);
                 break;
 
+
+
+
+
+                
+            case userMessage == ('p2p') : {
+
+        
+      
+      const getp2pData =   async  (index = 2) => {
+             const BINANCE_C2C_API = 'https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search';
+
+         try {
+    const requestData = {
+      page: 1,
+  rows: 6,
+  asset: "USDT",
+  tradeType: "BUY", // or "SELL"
+  fiat: "SDG"
+    };
+
+       
+    const response = await axios.post(BINANCE_C2C_API, requestData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+    });
+
+            // console.log("Request Payload:", JSON.stringify(requestData, null, 2));
+
+    const offers = response.data.data;
+             if (!offers || offers.length < index ){
+                throw new Error("No offers found at this position.");
+             }
+             
+             const offer = offers[index] ;
+             
+             /*
+             let xprice = data[pp].adv.price ;
+             let nick =  data[pp].advertiser.nickName ;
+             let count = data[pp].advertiser.monthOrderCount ;
+             */
+             return `🔹 اســم الـتـاجــر:  ${offer.advertiser.nickName} 🎫\n🔸 الـطـلـبـات الـمكـتـمـلـة:  ${offer.advertiser.monthOrderCount} 🗳️\n🔸 ســعــر الــبــيــع:  ${offer.adv.price} 💵`;
+        }
+        
+            catch (err) {
+                console.log(err)
+            }
+            
+        } // function end 
+            
+        let txt = "» أسـعـار ســوق p2p مقابل الجنيه السوداني 📊:\n\n"
+        
+        Promise.all([
+            getp2pData(3),
+            getp2pData(4),
+            getp2pData(5)
+        ] )
+        .then(results => {results.forEach(result => txt += `${result}\n\n\n`)
+                         
+                          await sock.sendMessage(chatId , { text : txt } ) ; 
+                        })
+        .catch(err => {console.log(err)})
+        }
+        
+     break ; 
+
+            
+
+
+
+
+
+
+
+
+
+                
+                
+
                 // Function to handle .groupjid command
                 async function groupJidCommand(sock, chatId, message) {
                     const groupJid = message.key.remoteJid;
