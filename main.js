@@ -761,7 +761,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
 
                 
-            case userMessage == ('p2p') : {
+            case userMessage.startsWith('.p2p') : {
 
         
       
@@ -816,7 +816,8 @@ async function handleMessages(sock, messageUpdate, printLog) {
             getp2pData(5)
         ] )
         .then(results => {results.forEach(result => txt += `${result}\n\n\n`)
-                         
+
+                          console.log(txt)
                            sock.sendMessage(chatId , { text : txt } ) ; 
                         })
         .catch(err => {console.log(err)})
