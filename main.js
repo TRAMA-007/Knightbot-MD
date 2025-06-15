@@ -99,7 +99,7 @@ const imagineCommand = require('./commands/imagine');
 global.packname = settings.packname;
 global.author = settings.author;
 global.channelLink = "https://whatsapp.com/channel/0029VakXqy15Ui2RZuhaa02l";
-global.ytch = TRAMA Real Zool";
+global.ytch = "TRAMA Real Zool";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
