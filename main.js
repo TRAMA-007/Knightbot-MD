@@ -827,7 +827,7 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
             
 
-            case userMessage == 'tet' : {
+            case userMessage == '.tet' : {
 
 sock.sendMessage(chatId , {text : 'test test testoooooo' } , {quoted : senderId } ) ;
                 
