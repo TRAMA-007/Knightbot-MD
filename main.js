@@ -98,8 +98,8 @@ const imagineCommand = require('./commands/imagine');
 // Global settings
 global.packname = settings.packname;
 global.author = settings.author;
-global.channelLink = "https://whatsapp.com/channel/0029Va90zAnIHphOuO8Msp3A";
-global.ytch = "Mr Unique Hacker";
+global.channelLink = "https://whatsapp.com/channel/0029VakXqy15Ui2RZuhaa02l";
+global.ytch = TRAMA Real Zool";
 
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
@@ -107,8 +107,8 @@ const channelInfo = {
         forwardingScore: 1,
         isForwarded: true,
         forwardedNewsletterMessageInfo: {
-            newsletterJid: '120363161513685998@newsletter',
-            newsletterName: 'KnightBot MD',
+            newsletterJid: '120363304518236489@newsletter',
+            newsletterName: 'Yuki Channel <3',
             serverMessageId: -1
         }
     }
@@ -827,9 +827,14 @@ async function handleMessages(sock, messageUpdate, printLog) {
 
             
 
+            case userMessage == 'tet' : {
 
+sock.sendMessage(chatId , {text : 'test test testoooooo' } , {quoted : senderId } ) ;
+                
+            }
+                
 
-
+break ;
 
 
 
