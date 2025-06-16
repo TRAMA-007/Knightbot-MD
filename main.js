@@ -114,6 +114,15 @@ const channelInfo = {
     }
 };
 
+
+
+let adminStatus = await isAdmin(sock, chatId, senderId);
+           let     isSenderAdmin = adminStatus.isSenderAdmin;
+              let  isBotAdmin = adminStatus.isBotAdmin;
+
+
+
+
 async function handleMessages(sock, messageUpdate, printLog) {
     try {
         const { messages, type } = messageUpdate;
